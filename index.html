@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WY0YEJ9SGS"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WY0YEJ9SGS');
+  </script>
+
+  <title>Nakavision</title> 
+  <link rel="icon" type="image/png" href="assets/images/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/images/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .language-switcher {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+    
+    @media (max-width: 991px) {
+      .language-switcher {
+        left:62%;
+        transform: translateX(-50%);
+        right: auto;
+        top: 15px;
+      }
+    }
+    
+    .language-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .language-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .language-flag {
+      width: 18px;
+      height: 12px;
+      border-radius: 2px;
+      object-fit: cover;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .language-switcher {
+        top: 12px;
+      }
+      
+      .language-link {
+        padding: 5px 10px;
+        font-size: 12px;
+        gap: 5px;
+      }
+      
+      .language-flag {
+        width: 16px;
+        height: 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .language-switcher {
+        top: 10px;
+      }
+      
+      .language-link {
+        padding: 4px 8px;
+        font-size: 11px;
+      }
+      
+      .language-flag {
+        width: 14px;
+        height: 9px;
+      }
+    }
+
+    /* Video section styling */
+    .video-section {
+      margin: 60px 0;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .video-item {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-item iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+    }
+
+    .video-title {
+      padding: 15px 20px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .video-section {
+        margin: 40px 0;
+        padding: 20px 10px;
+      }
+      
+      .video-container {
+        gap: 20px;
+      }
+      
+      .video-item {
+        min-width: 280px;
+      }
+      
+      .video-item iframe {
+        height: 200px;
+      }
+      
+      .video-title {
+        font-size: 14px;
+        padding: 12px 15px;
+      }
+    }
+
+    /* Fixed letter spacing for main titles */
+    .text-main.c1, .text-main.c2 {
+      letter-spacing: -0.5px !important;
+    }
+
+    @media (max-width: 768px) {
+      .text-main.c1, .text-main.c2 {
+        font-size: 28px !important;
+        letter-spacing: -0.3px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .text-main.c1, .text-main.c2 {
+        font-size: 24px !important;
+        letter-spacing: -0.2px !important;
+      }
+    }
+
+    /* Fixed right column alignment and width */
+    .textblock2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .box1, .box209, .img-onvif-container {
+      width: 209px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .img-onvif-container {
+      margin-top: 15px;
+    }
+
+    .onvif-text {
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 10px;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 1199px) and (min-width: 768px) {
+      .textblock2 {
+        align-items: flex-start;
+      }
+      
+      .box1, .box209, .img-onvif-container {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .textblock2 {
+        align-items: center;
+      }
+      
+      .box1, .box209, .img-onvif-container {
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/languages.js"></script>
+</head>
+
+<body class="position-relative" style=" background: linear-gradient(rgba(33, 29, 29, 1), rgba(12, 12, 12, 1));">
+
+  <div class="container mainContainer bg1 overflow-hidden">
+    <section class="top1">
+      <header>
+        <nav class="navbar navbar-expand-lg position-relative">
+          <div class="container-fluid px-0">
+            <a class="navbar-brand" href="#"><img class="w-100" src="assets/images/v3_7.png" alt="">
+              <div class="nevek"><span class="d-block logoNev">NAKATOMI</span>
+                <span class="d-block logoNev alnev">development</span>
+              </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html"><span data-lang="nav.home">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="shop-link"><span data-lang="nav.shop">Shop</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="register.html"><span data-lang="nav.register">Register</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="support.html"><span data-lang="nav.support">Support</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="row">
+        <div class="col-auto position-relative col1" style="z-index: 9;">
+          <div class="asw">ADVANCED SERIES with</div>
+          <img class="imgCNV" src="assets/images/v2004_2.png" alt="" width="278">
+          <h1 class="maintitle">NAKAVISION C1</h1>
+          <img class="cam-duo-top  d-md-none" src="assets/images/cam.duo.png" alt="">
+          <img class="compatible-top d-md-none mb-3" src="assets/images/compatible.png" width="350" alt="">
+          <div class="shorttext" data-lang="main.tagline">THE BEST 2-LENS SOLUTION<br>FOR YOUR HOME SECURITY,<br>REMOTELY TOO, DAY AND NIGHT<br>...even in complete darkness...</div>
+          <div class="rating">
+            <img class="me-3 me-lg-0" src="assets/images/v3_28.png" alt="" width="213">
+            <div class="text">100+ Reviews</div>
+          </div>
+          <div class="priceamazon">
+            <div class="prices">
+              <div class="price">€99.90</div>
+              <div class="price">£79.90</div>
+            </div>
+            <a href="#" target="_blank" id="shop-button">
+              <img src="assets/images/v2003_12.png" alt="" width="250">
+            </a>
+          </div>
+        </div>
+        <div class="col-auto">
+          <img class="cam-duo d-none d-md-block d-xxl-none" src="assets/images/cam.duo.png" alt="">
+          <img class="d-none d-xxl-block cam-b" src="assets/images/cam-b.png" alt="">
+          <img class="d-none d-xxl-block cam-w" src="assets/images/cam-w.png" alt="">
+          <img class="compatible d-none d-md-block" src="assets/images/compatible.png" width="350" alt="">
+        </div>
+      </div>
+    </section>
+    <section class="nakaText">
+      NAKA
+    </section>
+
+    <seection class="desc position-relative">
+      <div class="text-main c1 text-center" data-lang="main.doubleLens">Double lens. Double security.</div>
+      <div class="undertitle text-center" data-lang="main.subtitle">You can monitor two areas at once, track movement with AI,<br>and get instant live view on your phone, anywhere in the world.</div>
+      <div class="phonetext">
+        <div class="textblock1">
+          <ul class="list-unstyled" id="features-list">
+            <li data-lang="main.features.0">24/7 remote access</li>
+            <li data-lang="main.features.1">2 simultaneous HD streams</li>
+            <li data-lang="main.features.2">Pan/Tilt/4x Zoom</li>
+            <li data-lang="main.features.3">High-intensity infrared lights</li>
+            <li data-lang="main.features.4">Cloud services**</li>
+            <li data-lang="main.features.5">AI human detection and tracking</li>
+            <li data-lang="main.features.6">Weatherproof / IP66</li>
+            <li data-lang="main.features.7">2.4Ghz Wifi / Bluetooth / Ethernet</li>
+            <li data-lang="main.features.8">MicroSD card slot up to 128GB</li>
+            <li data-lang="main.features.9">and many more advanced features...</li>
+          </ul>
+        </div>  
+        <div class="picture text-center"><img class="w-100" src="assets/images/phone.png" alt="">
+          <img class="d-none d-md-block d-xl-none img-onvif" src="assets/images/onvif.png" alt="" width="209">
+        </div>
+        <div class="textblock2">
+          <div class="box1">
+            <div class="icsee" data-lang="main.freeApp">With free iCSee app*</div>
+            <img class="img-icsee" src="assets/images/icsee.png" alt="" width="209">
+          </div>
+          <div class="box209">
+            <div class="qrtext text-center" data-lang="main.qrText">Scan the QR code <br>to download:</div>
+            <img class="img-qr" src="assets/images/qr.png" alt="" width="164">
+          </div>
+          <div class="img-onvif-container d-md-none d-xl-block">
+            <img class="img-onvif" src="assets/images/onvif.png" alt="" width="209">
+            <div class="onvif-text" data-lang="main.onvifText">Local recording:<br>NVR / NAS / PC / MAC</div>
+          </div>
+        </div>
+      </div>
+
+      <section class="video-section" id="video-section-hu" style="display: none;">
+        <div class="video-container">
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/yjD64D1cO6w" 
+                    title="Nakavision C1 Bemutató" 
+                    allowfullscreen>
+            </iframe>
+            <div class="video-title"></div>
+          </div>
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/nZ21YefSdo8" 
+                    title="Nakavision C1 Telepítés" 
+                    allowfullscreen>
+            </iframe>
+            <div class="video-title"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-main c2 text-center" data-lang="main.advancedImaging">Advanced Imaging (AI) sensors:</div>
+    </section>
+
+  </div>
+  <section class="separator text-center">
+    <div class="container px-0">
+      <img class="w-100" src="assets/images/bg-pro.png" alt="">
+    </div>
+  </section>
+  <section class="top2">
+    <div class="container bg1">
+      <div class="text-center toptext" data-lang="main.sensorDescription">The new <b>SmartSENS SC3335AI</b>, a 3MP sensor (2312H x 1304V, max30fps) with MIPI and parallel outputs, features SmartSens <b>SmartPixel™</b> technology for reliable, high-quality imaging. It offers richer details and better image quality compared to 2MP sensors. Very good and sharp imaging at night, with AI Human detection and low false alarm rate.</div>
+      <div class="text-main c1 text-center" data-lang="main.awardWinning">Award winning technologies:</div>
+      <ul class="list-unstyled technologies">
+        <li>
+          <div class="title">SFCPixel® </div>
+          <div class="szov">SmartSens unique SFCPixel® technology obtains higher voltages by shortening the distance between the Source Follower (SF) and the PhotoDiode (PD), achieving higher sensitivity and better night vision imaging.</div>
+        </li>
+        <li>
+          <div class="title">PixGain™</div>
+          <div class="szov">Combining High Gain and Low Gain, PixGain Technologies achieve exceptional imaging at night and in low-light conditions while capturing fine details during daytime and in glaring light.</div>
+        </li>
+        <li>
+          <div class="title">Lightbox IR® </div>
+          <div class="szov">NIR Enhancement Technology: 2x efficiency in the infrared light range between 850 and 940 nm.</div>
+        </li>
+      </ul>
+      <div class="smsense">The SmartSENS Won the 'Sensor of the Year' at the 2023 World Electronics Achievement Awards.</div>
+      <div class="text-main c2 text-center" data-lang="main.watchHouse">Watch what happens around your house.<br> Always.</div>
+      <img class="kamera-dobozos" src="assets/images/cam.box.png" alt="" width="800">
+      <img class="nakalogo" src="assets/images/nakalogo.png" alt="" width="800">
+      <div class="tested text-center" data-lang="main.tested">Designed, developed and tested by Nakatomi's technical team, with best-in-class components.</div>
+
+      <div class="specification">
+        <div class="title text-center" style="font-weight:bold; color:black; font-size:20px;" data-lang="main.specTitle">Technical Specifications:</div>
+        <ul class="list-unstyled mb-0">
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Model:</span> Nakavision C1 - Dual lens, 3+3 Megapixel indoor/outdoor Pan/Tilt IP camera</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">System:</span> Dual-core 32-bit DSP (XM535x), Pure Hard Compression, Watchdog</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Sensor:</span> 2x3MP, total 6,000,000 pixels 1/3" SmartSens SC3335AI (Advanced Imaging™) high-performance CMOS</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Minimum illumination:</span> Color mode 0.01 Lux @(F1.2, AGC ON), 0 Lux with IR / B&W mode 0.001 Lux @(F1.2, AGC ON), 0 Lux with IR</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Video:</span> H.265AI encoding to SD, dual-stream, AVI format; bitrate: 0.1M~10Mbps; framerate 1~30 fps; Streams: H264 - Main stream: 2560x1440@12fps; <span style="font-weight:bold; color:black;">Sub-stream:</span> 800x448@12fps</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">LED:</span> 12 high-power LEDs (8 infrared + 4+4 white light), night color recording supported</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Day/Night Switching:</span> Supported, adjustable sensitivity IR-CUT filter</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Noise Reduction:</span> Hardware supported, 2D/3D</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">WDR (Wide Dynamic Range Mode):</span> Hardware supported (optimal imaging in very bright/dark environments)</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Sound System:</span> G.711A codec, 2-way intercom, audio-video synchronization</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Sound Power:</span> Input level 2Vp-p 1kΩ, output level 30mW 16Ω</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Wired network:</span> 1x RJ45 Ethernet interface, 10/100M, PoE injector compatible (shielded Cat5e cable recommended)</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Wireless network:</span> 1x WiFi antenna, Bluetooth</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Motion System:</span> Gimbal, self-calibrating, 1 horizontal and 1 vertical motor</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Hard Reset:</span> Supported, 1-button reset (next to SD card slot, 10 sec hold)</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Supported OS:</span> Android, iOS, iPadOS, Windows, MacOS (in some cases with third-party software)</li>
+          <li style="color:#444;"><span style="font-weight:bold; color:black;">Supported Software:</span> iCSee, XMeye and ONVIF compatible software (Win: BlueIris, Mac: SecuritySpy)</li>
+        </ul>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <a href="https://apps.apple.com/gb/app/icsee/id1130153523" target="_blank">
+          <img class="applogos" src="assets/images/applogos.png" alt="Download on the App Store" width="345">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.xm.csee&pli=1" target="_blank">
+          <img class="applogos" src="assets/images/applogos2.png" alt="Get it on Google Play" width="340">
+        </a>
+      </div>
+
+      <div class="footertext1 text-center">
+        *The iCSee application is developed by Hangzhou Jftech Co., Ltd., please contact the developer for support. <br>
+        APP Store is a service of Apple Inc., Google Play and Google Assistant are a service and trademark of Google LLC. Alexa is a trademark and service of Amazon.com Inc. Support is available on the respective service's website.<br>
+        Nakavision reserves the right to change hardware and software without notice if it provides improved performance.<br><br>
+        <b data-lang="main.copyrightText">Copyright © 2025 Nakavision Ltd. Registered in England & Wales <img src="images/uk.svg" alt="UK Flag" width="20" height="12"> All rights reserved!</b><br>
+        London HQ: Unit 9a Wick Road Business Park, Wick Road, Burnham-On-Crouch, England, CM0 8FA<br>
+      </div>
+      <div class="footertext2 text-center">**Nakavision™ as the distributor of the product, disclaims any liability in relation to the iCSee application for any data processing resulting from the app developer's access or to any action taken on the camera footage. The iCSee application is developed and operated by an independent third party. Nakavision™ is not responsible for the availability, operation and pricing of the iCSee application, or for any problems incurring with the application. For any reason related to the iCSee application, please contact the application developer.</div>
+    </div>
+  </section>
+
+  <script>
+    $(document).ready(function () {
+      // Initialize language-specific elements
+      const lang = window.langManager ? window.langManager.currentLang : 'en';
+      
+      // Set shop URLs
+      const shopUrl = 'https://xpro.hu/termekkategoria/okos-kiegeszito/okosotthon/biztonsagi-kamera/';
+      document.getElementById('shop-link').href = shopUrl;
+      document.getElementById('shop-button').href = shopUrl;
+      
+      // Show Hungarian videos only for Hungarian version
+      if (lang === 'hu') {
+        document.getElementById('video-section-hu').style.display = 'block';
+      }
+            if (lang === 'en') {
+        document.getElementById('video-section-hu').style.display = 'block';
+      }
+      
+      // Scroll effect for larger screens
+      if ($(window).width() > 991) {
+        $(window).scroll(function () {
+          var scroll = $(window).scrollTop();
+          var mozgas = scroll / 10;
+
+          $('.cam-w').css({
+            "margin-top": -mozgas
+          });
+
+          $('.cam-b').css({
+            "top": mozgas
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
