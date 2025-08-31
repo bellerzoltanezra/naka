@@ -11406,12 +11406,12 @@ header .navbar .navbar-nav .nav-item .nav-link.active span::after {
 }
 @media (max-width: 991.98px) {
   .top1 .maintitle {
-    font-size: 25px;
+    font-size: 45px;
   }
 }
 @media (max-width: 575.98px) {
   .top1 .maintitle {
-    margin: 12px 0 0;
+    margin: 18px 0 0;
   }
 }
 .top1 .shorttext {
