@@ -1,8 +1,13 @@
 RewriteEngine On
 
-# Force HTTPS (opcionális, de ajánlott)
+# Force HTTPS (opcionális, but ajánlott)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Domain-specific navigation fix
+# Ha valaki nakavision.com-on próbál magyar oldalakat elérni, redirect az angol verzióra
+RewriteCond %{HTTP_HOST} ^(www\.)?nakavision\.com$ [NC]
+RewriteRule ^(register|support)$ /$1.html [L]
 
 # Remove .html extension from URLs
 RewriteCond %{REQUEST_FILENAME} !-d

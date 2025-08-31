@@ -34,7 +34,7 @@ const languages = {
       watchHouse: "Figyeld mi történik a házad körül.<br> Mindig.",
       tested: "Tervezte és tesztelte a Nakatomi technikai csapata, a kategória legjobb alkatrészeiből.",
       specTitle: "Technikai specifikációk:",
-      copyrightText: "Copyright © 2025 Nakavision Ltd. Registered in England & Wales <img src=\"images/uk.svg\" alt=\"UK Flag\" width=\"20\" height=\"12\"> Minden jog fenntartva!"
+      copyrightText: "Copyright © 2025 Nakavision Ltd. Registered in England & Wales <img src=\"assets/images/uk.svg\" alt=\"UK Flag\" width=\"20\" height=\"12\"> Minden jog fenntartva!"
     },
     // Registration page
     register: {
@@ -112,7 +112,7 @@ const languages = {
       watchHouse: "Watch what happens around your house.<br> Always.",
       tested: "Designed, developed and tested by Nakatomi's technical team, with best-in-class components.",
       specTitle: "Technical Specifications:",
-      copyrightText: "Copyright © 2025 Nakavision Ltd. Registered in England & Wales <img src=\"images/uk.svg\" alt=\"UK Flag\" width=\"20\" height=\"12\"> All rights reserved!"
+      copyrightText: "Copyright © 2025 Nakavision Ltd. Registered in England & Wales <img src=\"assets/images/uk.svg\" alt=\"UK Flag\" width=\"20\" height=\"12\"> All rights reserved!"
     },
     // Registration page
     register: {
@@ -166,21 +166,31 @@ class LanguageManager {
   }
 
   detectLanguage() {
-    // Domain alapú nyelv detektálás
-    const hostname = window.location.hostname;
-    if (hostname.includes('.hu')) {
+    // Domain alapú nyelv detektálás - JAVÍTVA
+    const hostname = window.location.hostname.toLowerCase();
+    
+    // Explicit domain ellenőrzés
+    if (hostname === 'nakavision.hu' || hostname === 'www.nakavision.hu') {
       return 'hu';
-    } else if (hostname.includes('.com')) {
+    } else if (hostname === 'nakavision.com' || hostname === 'www.nakavision.com') {
       return 'en';
     }
     
-    // Fallback: browser nyelv vagy URL paraméter
+    // TLD alapú detektálás fallback-ként
+    if (hostname.endsWith('.hu')) {
+      return 'hu';
+    } else if (hostname.endsWith('.com')) {
+      return 'en';
+    }
+    
+    // URL paraméter ellenőrzés
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
     if (langParam && languages[langParam]) {
       return langParam;
     }
     
+    // Browser nyelv fallback
     const browserLang = navigator.language.substr(0, 2);
     return languages[browserLang] ? browserLang : 'en';
   }
@@ -207,6 +217,25 @@ class LanguageManager {
         element.placeholder = text;
       }
     });
+
+    // Shop linkek kezelése - JAVÍTVA
+    this.updateShopLinks();
+  }
+
+  updateShopLinks() {
+    const shopLinks = document.querySelectorAll('#shop-link, #shop-button');
+    shopLinks.forEach(link => {
+      if (this.currentLang === 'hu') {
+        link.href = 'https://xpro.hu/termekkategoria/okos-kiegeszito/okosotthon/biztonsagi-kamera/';
+      } else {
+        // Angol verzión egyelőre ne mutasson sehova
+        link.href = '#';
+        link.onclick = (e) => {
+          e.preventDefault();
+          return false;
+        };
+      }
+    });
   }
 
   switchLanguage(lang) {
@@ -222,19 +251,23 @@ class LanguageManager {
 document.addEventListener('DOMContentLoaded', function() {
   window.langManager = new LanguageManager();
   window.langManager.updateTexts();
+  
+  // Debug info konzolba
+  console.log('Current domain:', window.location.hostname);
+  console.log('Detected language:', window.langManager.currentLang);
 });
 
 // Config objektum domain-specifikus beállításokhoz
 const config = {
   hu: {
     domain: 'nakavision.hu',
-    assetPath: 'nakavision.hu/',
+    assetPath: 'assets/',
     shopUrl: 'https://xpro.hu/termekkategoria/okos-kiegeszito/okosotthon/biztonsagi-kamera/'
   },
   en: {
     domain: 'nakavision.com', 
-    assetPath: 'nakavision.com/',
-    shopUrl: 'https://xpro.hu/termekkategoria/okos-kiegeszito/okosotthon/biztonsagi-kamera/'
+    assetPath: 'assets/',
+    shopUrl: '#' // Egyelőre üres
   }
 };
 
